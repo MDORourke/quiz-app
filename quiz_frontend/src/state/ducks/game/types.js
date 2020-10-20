@@ -1,0 +1,4 @@
+const MOVE_TO_SLIDE = "app/game/MOVE_TO_SLIDE";
+const SUBMIT_ANSWERS = "app/game/SUBMIT_ANSWERS";
+
+export { MOVE_TO_SLIDE, SUBMIT_ANSWERS };
