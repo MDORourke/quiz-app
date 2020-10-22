@@ -23,9 +23,9 @@ npm start
 This is a very simple app put together as a hobby project. Next steps may include:
 
 - Dockerization
-- Backend for interacting with frontend state
-- Socket.IO integration with this backend
-- Host frontend for easier interactions with the backend
+- Nicer host frontend for easier interactions with the backend
+- Improve styling
+- Tech debt
 
 ## Contributing
 

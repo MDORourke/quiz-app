@@ -2,9 +2,7 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core";
+import { TextField, Typography, withStyles } from "@material-ui/core";
 
 const styles = () => ({
   caption: {

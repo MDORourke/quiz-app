@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Admin</title>
+  </head>
+  <body>
+    <h2>Screens</h2>
+    <h3>Current screen is {{ currentScreen }}</h3>
+    <form method="post" action="admin">
+      {% for key, screen in screens.items() %}
+      <input type="submit" value="{{ key }}" name="screen" />
+      {% endfor %}
+    </form>
+    <h2>Players</h2>
+    {% for player in players %}
+    <a href="answers/{{ player }}">{{ player }}</a>
+    {% endfor %}
+  </body>
+</html>

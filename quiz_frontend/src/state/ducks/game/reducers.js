@@ -3,13 +3,14 @@ import * as types from "./types";
 
 /* State Shape
 {
-  slide: number,
+  currentSlide: number,
   complete: bool,
-  maxSlides: number
+  loggedIn: bool,
+  playerName: string,
 }
 */
 
-const slideReducer = (state = 1, action) => {
+const currentSlideReducer = (state = 1, action) => {
   switch (action.type) {
     case types.MOVE_TO_SLIDE:
       return action.payload;
@@ -20,14 +21,34 @@ const slideReducer = (state = 1, action) => {
 
 const completeReducer = (state = false, action) => {
   switch (action.type) {
-    case types.SUBMIT_ANSWERS:
-      return true;
+    case types.COMPLETE_ROUND:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const loggedInReducer = (state = false, action) => {
+  switch (action.type) {
+    case types.SET_LOGGED_IN:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const playerNameReducer = (state = "", action) => {
+  switch (action.type) {
+    case types.SET_NAME:
+      return action.payload;
     default:
       return state;
   }
 };
 
 export default combineReducers({
-  slide: slideReducer,
+  currentSlide: currentSlideReducer,
   complete: completeReducer,
+  loggedIn: loggedInReducer,
+  playerName: playerNameReducer,
 });

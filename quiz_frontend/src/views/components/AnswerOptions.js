@@ -2,8 +2,7 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
-import ToggleButton from "@material-ui/lab/ToggleButton";
+import { ToggleButtonGroup, ToggleButton } from "@material-ui/lab";
 
 const AnswerOptions = ({ props, answerValue, onAnswerChange }) => (
   <ToggleButtonGroup

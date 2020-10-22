@@ -4,12 +4,17 @@ import { connect } from "react-redux";
 
 import { withStyles } from "@material-ui/core";
 
-import QuestionScreen from "./QuestionScreen";
-import SubmitScreen from "../components/SubmitScreen";
+import { socketOperations } from "../../state/ducks/socket";
+
+import LoginScreen from "./LoginScreen";
+import ScreenFactory from "../components/ScreenFactory";
+
+const SOCKET_HOST = "http://localhost:5000/";
 
 const styles = () => ({
   fullScreen: {
     height: "100vh",
+    width: "100vw",
     alignItems: "center",
     display: "flex",
     justifyContent: "center",
@@ -21,40 +26,57 @@ class Game extends React.Component {
     super(props);
   }
 
-  render() {
-    const { roundConfig, complete, classes } = this.props;
+  componentDidMount() {
+    const { connect } = this.props;
 
-    const round = roundConfig.rounds[1];
+    connect(SOCKET_HOST);
+  }
+
+  componentWillUnmount() {
+    const { socket, disconnect } = this.props;
+
+    if (socket) {
+      disconnect(socket);
+    }
+  }
+
+  render() {
+    const { currentScreen, loggedIn, classes } = this.props;
 
     return (
       <div className={classes.fullScreen}>
-        {complete && <SubmitScreen />}
-        {!complete && (
-          <QuestionScreen
-            questions={round.questions}
-            numSlides={round.questions.length}
-          />
-        )}
+        {!loggedIn && <LoginScreen />}
+        {loggedIn && <ScreenFactory screen={currentScreen} />}
       </div>
     );
   }
 }
 
-const { object, bool } = PropTypes;
+const { object, bool, func } = PropTypes;
 
 Game.propTypes = {
-  roundConfig: object.isRequired,
-  complete: bool.isRequired,
+  currentScreen: object,
+  loggedIn: bool.isRequired,
+  socket: object.isRequired,
+  connect: func.isRequired,
+  disconnect: func.isRequired,
 };
 
 const mapStateToProps = (state) => {
-  const { gameState } = state;
+  const { gameState, socketState, screenState } = state;
 
   return {
-    complete: gameState.complete,
+    currentScreen: screenState.currentScreen,
+    loggedIn: gameState.loggedIn,
+    socket: socketState.socket,
   };
+};
+
+const mapDispatchToProps = {
+  connect: socketOperations.connect,
+  disconnect: socketOperations.disconnect,
 };
 
 const StyledGame = withStyles(styles)(Game);
 
-export default connect(mapStateToProps)(StyledGame);
+export default connect(mapStateToProps, mapDispatchToProps)(StyledGame);

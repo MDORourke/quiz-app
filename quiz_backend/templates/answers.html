@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <title>{{ player }} Answers</title>
+  </head>
+  <body>
+    {% for round, answer in answers.items() %}
+    {{ round }}: {{ answer }}<br />
+    {% endfor %}
+  </body>
+</html>

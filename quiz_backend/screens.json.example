@@ -1,0 +1,206 @@
+{
+  "lobby": {
+    "type": "text",
+    "props": {
+      "slides": [
+        "Welcome! Please hold on until we start the quiz..."
+      ]
+    }
+  },
+  "howItWorks": {
+    "type": "text",
+    "props": {
+      "slides": [
+        "Here is how it works!",
+        "You will be presented by a number of rounds which you can run through in your own time",
+        "Use the arrows to switch questions and slides",
+        "And once you've put in all your answers you can go to the last question and hit 'SUBMIT ANSWERS'!",
+        "Once you've submitted your answers you'll find yourself on a holding page",
+        "When time is up, we'll move forward to the next round",
+        "Everyone ready?"
+      ]
+    }
+  },
+  "preface1": {
+    "type": "text",
+    "props": {
+      "slides": [
+        "Round 1!",
+        "In this round you will watch a series of music videos",
+        "For 1/2 a point name the artist, for another 1/2 a point name the title of the song",
+        "Enter the answers in the boxes labelled 'Artist' and 'Title' (I will be lenient if they're in the wrong place!)",
+        "Once you're done, hit the 'SUBMIT ANSWERS' button",
+        "Please hold..."
+      ]
+    }
+  },
+  "round1": {
+    "type": "round",
+    "props": {
+      "questions": [
+        {
+          "title": "Question 1",
+          "type": "video",
+          "props": {
+            "videoId": "dQw4w9WgXcQ"
+          },
+          "answers": [
+            {
+              "type": "freetext",
+              "props": {
+                "caption": "Artist"
+              }
+            },
+            {
+              "type": "freetext",
+              "props": {
+                "caption": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Question 2",
+          "type": "video",
+          "props": {
+            "videoId": "L_jWHffIx5E"
+          },
+          "answers": [
+            {
+              "type": "freetext",
+              "props": {
+                "caption": "Artist"
+              }
+            },
+            {
+              "type": "freetext",
+              "props": {
+                "caption": "Title"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "preface2": {
+    "type": "text",
+    "props": {
+      "slides": [
+        "Round 2!",
+        "In this round you will see a series of statements",
+        "For a full point state whether the statement is true or false using the 'True'/'False' buttons",
+        "Once you're done, hit the 'SUBMIT ANSWERS' button",
+        "Please hold..."
+      ]
+    }
+  },
+  "round2": {
+    "type": "round",
+    "props": {
+      "questions": [
+        {
+          "title": "Question 1",
+          "type": "text",
+          "props": {
+            "text": "This statement is true"
+          },
+          "answers": [
+            {
+              "type": "options",
+              "props": {
+                "options": [
+                  "True",
+                  "False"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Question 2",
+          "type": "text",
+          "props": {
+            "text": "This statement is less true"
+          },
+          "answers": [
+            {
+              "type": "options",
+              "props": {
+                "options": [
+                  "True",
+                  "False"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "preface3": {
+    "type": "text",
+    "props": {
+      "slides": [
+        "Round 3!",
+        "In this round you will see a list of animals",
+        "Drag the list on the right around to match the animals up",
+        "Once you're done, hit the 'SUBMIT ANSWERS' button",
+        "Please hold..."
+      ]
+    }
+  },
+  "round3": {
+    "type": "round",
+    "props": {
+      "direction": "column",
+      "questions": [
+        {
+          "title": "Questions 1-10",
+          "type": "list",
+          "props": {
+            "items": [
+              "Aardvark",
+              "Bison",
+              "Cat",
+              "Dog",
+              "Elephant",
+              "Frog",
+              "Gopher",
+              "Hyena",
+              "Iguana",
+              "Jackrabbit"
+            ]
+          },
+          "answers": [
+            {
+              "type": "list",
+              "props": {
+                "items": [
+                  "Hyena",
+                  "Dog",
+                  "Elephant",
+                  "Frog",
+                  "Gopher",
+                  "Iguana",
+                  "Aardvark",
+                  "Cat",
+                  "Bison",
+                  "Jackrabbit"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "done": {
+    "type": "text",
+    "props": {
+      "slides": [
+        "And we're done! Thanks!"
+      ]
+    }
+  }
+}

@@ -2,12 +2,12 @@ import React from "react";
 
 import Game from "./containers/Game";
 
-const App = (roundConfig) => {
+const App = () => {
   return (
     <div>
       <div>
         <section>
-          <Game roundConfig={roundConfig} />
+          <Game />
         </section>
       </div>
     </div>

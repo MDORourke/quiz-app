@@ -1,25 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import QuestionList from "./QuestionList";
 import QuestionText from "./QuestionText";
 import QuestionVideo from "./QuestionVideo";
 
-const QuestionFactory = ({ questionType, questionProps }) => {
-  switch (questionType) {
+const QuestionFactory = ({ question }) => {
+  switch (question.type) {
+    case "list":
+      return <QuestionList props={question.props} />;
     case "text":
-      return <QuestionText props={questionProps} />;
+      return <QuestionText props={question.props} />;
     case "video":
-      return <QuestionVideo props={questionProps} />;
+      return <QuestionVideo props={question.props} />;
     default:
       return <div>Invalid Question Type!</div>;
   }
 };
 
-const { string, object } = PropTypes;
+const { shape, string, object } = PropTypes;
 
 QuestionFactory.propTypes = {
-  questionType: string.isRequired,
-  questionProps: object.isRequired,
+  question: shape({
+    type: string.isRequired,
+    props: object.isRequired,
+  }),
 };
 
 export default QuestionFactory;

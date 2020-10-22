@@ -5,9 +5,19 @@ const moveToSlide = (slide) => ({
   payload: slide,
 });
 
-const submitAnswers = (answers) => ({
-  type: types.SUBMIT_ANSWERS,
-  payload: answers,
+const completeRound = (complete) => ({
+  type: types.COMPLETE_ROUND,
+  payload: complete,
 });
 
-export { moveToSlide, submitAnswers };
+const setLoggedIn = (loggedIn) => ({
+  type: types.SET_LOGGED_IN,
+  payload: loggedIn,
+});
+
+const setName = (name) => ({
+  type: types.SET_NAME,
+  payload: name,
+});
+
+export { moveToSlide, completeRound, setLoggedIn, setName };
